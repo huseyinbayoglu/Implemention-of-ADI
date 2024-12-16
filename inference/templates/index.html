@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Koyu tema için arka plan */
+            color: #ffffff; /* Metin rengi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            align-items: center; /* Küp ve grafiğin dikey olarak ortalanması */
+            justify-content: center; /* Küp ve grafiğin yatayda ortalanması */
+        }
+        #cube-container {
+            flex: 1;
+            display: flex;
+            justify-content: center; /* Küpün yatayda ortalanması */
+            align-items: center; /* Küpün dikeyde ortalanması */
+            max-width: 50%; /* Küpün ekranın %50'sini kaplaması */
+        }
+        #chart-container {
+            width: 600px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 0; /* Grafiği küpe yaklaştırmak için margin sıfırlandı */
+        }
+        canvas {
+            width: 100%;
+            height: 400px; /* Grafiğin yüksekliğini belirledik */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div id="cube-container"></div>
+        <div id="chart-container">
+            <!-- Grafik için canvas oluşturun -->
+            <canvas id="qValueChart"></canvas>
+            <p id="yvi-value" style="color: white; font-size: 18px; text-align: center; margin-top: 20px;">Y V I Değeri: </p>
+        </div>
+    </div>
+    
+    <!-- JavaScript dosyalarınızı en sona ekleyin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
